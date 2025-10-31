@@ -1,3 +1,5 @@
+import scala.concurrent.duration.DurationInt
+import scala.concurrent.{Await, Future}
 
 class forCompTests {
   def testComp1(): Unit =
@@ -15,6 +17,14 @@ class forCompTests {
   def testComp4(): Unit =
     val result = forComp4.multiply(Right(4), Right(2))
     assert(result == Right(8))
+
+
+  def testComp5(): Unit =
+  val f1 = Future(10)
+  val f2 = Future(20)
+  val result = Await.result(forComp5.sumFutures(f1, f2), 1.second)
+  assert(result == 30)
+
 }
 
 @main def runTests(): Unit =
@@ -23,4 +33,5 @@ class forCompTests {
   tests.testComp2()
   tests.testComp3()
   tests.testComp4()
+  tests.testComp5()
   println("All tests passed.")
