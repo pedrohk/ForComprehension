@@ -1,4 +1,4 @@
-
+import java.lang.ArithmeticException
 sealed trait SResult[+E, +A]
 
 case class SRight[A](value: A) extends SResult[Nothing, A]
