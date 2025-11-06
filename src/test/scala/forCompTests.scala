@@ -27,6 +27,21 @@ class forCompTests {
     assert(result == 30)
   }
 
+  def testComp7(): Unit = {
+    val res = forComp7.combine(Right("Hello"), Right("World"))
+    assert(res == Right("Hello World"))
+  }
+
+  def testComp8(): Unit = {
+    val res = forComp8.chain(List(Right("A"), Right("B")))
+    assert(res == Right(List("A", "B")))
+  }
+
+  def testComp9(): Unit = {
+    val res = forComp9.process(List("One", "", "Two"))
+    assert(res == Right(List("One", "Two")))
+  }
+
 }
 
 @main def runTests(): Unit =
@@ -36,7 +51,11 @@ class forCompTests {
   tests.testComp3()
   tests.testComp4()
   tests.testComp5()
+  tests.testComp7()
+  tests.testComp8()
+  tests.testComp9()
   println(forComp6.compute(5, 2))
   println(forComp6.compute(-1, 2))
   println(forComp6.compute(5, 0))
+
   println("All tests passed.")
