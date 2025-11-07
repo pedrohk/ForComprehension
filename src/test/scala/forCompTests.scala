@@ -42,6 +42,11 @@ class forCompTests {
     assert(res == Right(List("One", "Two")))
   }
 
+  def testComp10(): Unit = {
+    println(forComp10.process)
+    println(forComp10.processWithFailure)
+  }
+
 }
 
 @main def runTests(): Unit =
@@ -54,6 +59,7 @@ class forCompTests {
   tests.testComp7()
   tests.testComp8()
   tests.testComp9()
+  tests.testComp10()
   println(forComp6.compute(5, 2))
   println(forComp6.compute(-1, 2))
   println(forComp6.compute(5, 0))
